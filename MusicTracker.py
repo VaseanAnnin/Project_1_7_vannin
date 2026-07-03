@@ -105,6 +105,7 @@ def update_progress():
     song["progress"] = progress
 
 def delete_song():
+    ## This function deletes the song after searching for it
     song = search_songs()
 
     if song is None:
