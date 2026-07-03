@@ -71,16 +71,26 @@ def search_songs():
     search = input("song title: ")
     found = False
 
-    for song in songs():
+    for song in songs:
         if song["title"].lower() == search.lower():
             print(song)
             found = True
+            return song
     
     if found ==False:
         print("Can't find song")
 
 
+
 running = True
+
+def update_progress():
+    song = search_songs()
+
+    progress = int(input("Progress: "))
+
+    song["progress"] = progress
+
 
 while running:
     menu()
@@ -90,9 +100,9 @@ while running:
     elif user_input == "2":
         view_songs()
     elif user_input == "3":
-        print("Search Song")
+        search_songs()
     elif user_input == "4":
-        print("Update Progress")
+        update_progress()
     elif user_input =="5":
         print("Delete Song")
     elif user_input == "6":
