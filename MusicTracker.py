@@ -12,6 +12,8 @@ Date: 06/24/2026
 """
 
 songs = [
+    """
+    example data
     {
     "title": "Freudian",
     "artist": "Daniel Caesar",
@@ -19,6 +21,9 @@ songs = [
     "genre": "Neo Soul",
     "progress": 79
     }
+
+"""
+
 ]
 
 def menu():
