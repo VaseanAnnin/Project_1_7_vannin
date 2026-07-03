@@ -32,15 +32,50 @@ def menu():
     print("6. View Statistics")
     print("7. Exit")
 
+def add_song():
+    ## This function is for adding a new song
+    title = input("Song title: ")
+    artist= input("Artists: ")
+    instrument = input("Instruments: ")
+    genre = input("Genre: ")
+    progress = int(input("Progress: "))
+
+    song = {
+        "title": title,
+        "artist": artist,
+        "instrument": instrument,
+        "genre": genre,
+        "progress": progress
+    }
+    songs.append(song)
+
+    print("=========Song added=========")
+
+def view_songs():
+    ##This function displays the current songs within the app
+
+    if(len(songs)) == 0:
+        print("No songs in database")
+        return
+    
+    for i, song in enumerate(songs, start = 1):
+        print(f"\nSong {i}")
+        print(f"title: {song['title']}")
+        print(f"artist: {song['artist']}")
+        print(f"instrument: {song['instrument']}")
+        print(f"genre: {song['genre']}")
+        print(f"progress: {song['progress']}%")
+
+
 running = True
 
 while running:
     menu()
     user_input = input("Enter your choice: ")
     if user_input == "1":
-        print("Add Song")
+        add_song()
     elif user_input == "2":
-        print("View Songs")
+        view_songs()
     elif user_input == "3":
         print("Search Song")
     elif user_input == "4":
@@ -55,4 +90,3 @@ while running:
     
     else:
         print("Selection not recognized please try again")
-        
