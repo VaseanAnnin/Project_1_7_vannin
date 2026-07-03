@@ -29,8 +29,7 @@ def menu():
     print("3. Search Song")
     print("4. Update Progress")
     print("5. Delete Song")
-    print("6. View Statistics")
-    print("7. Exit")
+    print("6. Exit")
 
 def add_song():
     ## This function is for adding a new song
@@ -73,7 +72,12 @@ def search_songs():
 
     for song in songs:
         if song["title"].lower() == search.lower():
-            print(song)
+            print(f"\n============Song============")
+            print(f"title: {song['title']}")
+            print(f"artist: {song['artist']}")
+            print(f"instrument: {song['instrument']}")
+            print(f"genre: {song['genre']}")
+            print(f"progress: {song['progress']}%")
             found = True
             return song
     
@@ -85,12 +89,22 @@ def search_songs():
 running = True
 
 def update_progress():
+    ##Function updates the progress of a song after searching
     song = search_songs()
+
+    if song is None:
+        return 
 
     progress = int(input("Progress: "))
 
     song["progress"] = progress
 
+def delete_song():
+    song = search_songs()
+
+    if song is None:
+        return 
+    songs.remove(song)
 
 while running:
     menu()
@@ -104,10 +118,8 @@ while running:
     elif user_input == "4":
         update_progress()
     elif user_input =="5":
-        print("Delete Song")
+        delete_song()
     elif user_input == "6":
-        print("Statistics")
-    elif user_input == "7":
         print ("Keep practicing see you soon!")
         running = False
     
