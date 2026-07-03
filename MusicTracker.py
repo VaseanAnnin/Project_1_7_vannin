@@ -11,8 +11,9 @@ Date: 06/24/2026
 
 """
 
-songs = [
-    """
+
+
+"""
     example data
     {
     "title": "Freudian",
@@ -23,8 +24,7 @@ songs = [
     }
 
 """
-
-]
+songs = []
 
 def menu():
     ## This function is for the main menu
